@@ -11,8 +11,8 @@ def errprint(*args, **kwargs):
     print(*args, file=sys.stderr, **kwargs)
 
 np.random.seed(0)
-samples_per_model = 50
-time_limit_per_sample = 10*60
+samples_per_model = 500
+time_limit_per_sample = 1*60
 
 env = gurobipy.Env()
 env.setParam('OutputFlag',False)
