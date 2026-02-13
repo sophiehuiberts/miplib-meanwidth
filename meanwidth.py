@@ -49,6 +49,9 @@ for file in os.scandir('/home/sophie/miplibbenchmark'):
     # No crossover to get a basic solution. Tiny loss of accuracy but it saves time
     relax.Params.Crossover = 0
 
+    # LP solving method to deterministic concurrent
+    relax.setParam('Method', 4)
+
     # Work limit is like time limit but deterministic
     relax.setParam('WorkLimit',work_limit_per_sample)
 
@@ -87,7 +90,7 @@ for file in os.scandir('/home/sophie/miplibbenchmark'):
         outputfile.write(f"Gurobi version {gurobipy.gurobi.version()}\n")
         outputfile.write(f"Model name {model.Modelname}\n")
         if len(results) == samples_per_model:
-            outputfile.write(f"Full set of {samples_per_model} results\n")
+            outputfile.write(f"Full set of {len(results)} results\n")
             json.dump(results, outputfile)
             outputfile.write(f"\n")
             print(f"{model.Modelname:<28} | {min(results):>8.2} | {median(results):>8.2} | {mean(results):>8.2} | {max(results):>8.2}")
