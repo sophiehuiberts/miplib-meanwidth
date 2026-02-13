@@ -54,6 +54,7 @@ for file in os.scandir('/home/sophie/miplibbenchmark'):
 
     results = []
     # tqdm makes a little progress bar
+    statuscode = 0
     for attempts in tqdm(range(0,samples_per_model)):
         # Instead of sampling objective as a random unit vector,
         # we will sample its entries standard normal independent.
@@ -75,16 +76,24 @@ for file in os.scandir('/home/sophie/miplibbenchmark'):
                 relax.Params.DualReductions = 0
                 relax.optimize()
             print(f"{model.Modelname:<28} | Status code {relax.getAttr('Status')} on attempt {attempts}")
+            statuscode = relax.getAttr('Status')
             sys.stdout.flush()
             break
+    sys.stdout.flush()
     # Now write to file what we found
     # Will write the analysis script later
     with open(f"output/{model.ModelName}-meanwidthlog.txt",'w',encoding="utf-8") as outputfile:
         outputfile.write(f"Script version {current_script_hash}\n")
         outputfile.write(f"Gurobi version {gurobipy.gurobi.version()}\n")
+        outputfile.write(f"Model name {model.Modelname}\n")
         if len(results) == samples_per_model:
+            outputfile.write(f"Full set of {samples_per_model} results\n")
             json.dump(results, outputfile)
+            outputfile.write(f"\n")
             print(f"{model.Modelname:<28} | {min(results):>8.2} | {median(results):>8.2} | {mean(results):>8.2} | {max(results):>8.2}")
             sys.stdout.flush()
         else:
-            outputfile.write(f"Status code {relax.getAttr('Status')} on attempt {attempts}")
+            outputfile.write(f"Status code {statuscode} on attempt {attempts}\n")
+            json.dump(results, outputfile)
+            outputfile.write(f"\n")
+    sys.stdout.flush()
