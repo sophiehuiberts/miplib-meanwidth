@@ -74,10 +74,6 @@ for file in os.scandir('/home/sophie/miplibbenchmark'):
             results.append(-1 * relax.ObjVal / math.sqrt(sqnorm))
         else:
             # No optimal solution found: abort this instance
-            if relax.getAttr('Status') == 4:
-                # Distinguish infeasible from unbounded
-                relax.Params.DualReductions = 0
-                relax.optimize()
             print(f"{model.Modelname:<28} | Status code {relax.getAttr('Status')} on attempt {attempts}")
             statuscode = relax.getAttr('Status')
             sys.stdout.flush()
