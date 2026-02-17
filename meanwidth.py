@@ -17,11 +17,11 @@ with open(__file__,"rb") as f:
     print(f"Script version {current_script_hash}")
 
 # How many random unit-length objective vectors will we optimize per instance?
-samples_per_model = 500
+samples_per_model = 100
 
 # Work limit is like time limit but deterministic.
 # Chose 60 seconds
-work_limit_per_sample = 60
+work_limit_per_sample = 5*60
 
 env = gurobipy.Env()
 env.setParam('OutputFlag',False)
