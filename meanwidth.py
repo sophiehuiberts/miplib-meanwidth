@@ -55,7 +55,8 @@ for file in os.scandir('/home/sophie/miplibbenchmark'):
     # Work limit is like time limit but deterministic
     relax.setParam('WorkLimit',work_limit_per_sample)
 
-    results = []
+    minimizationresults = []
+    maximizationresults = []
     # tqdm makes a little progress bar
     statuscode = 0
     for attempts in tqdm(range(0,samples_per_model)):
@@ -68,13 +69,27 @@ for file in os.scandir('/home/sophie/miplibbenchmark'):
             sample = np.random.normal(0,1)
             var.setAttr('Obj', sample)
             sqnorm = sqnorm + sample*sample
+
+        # we will both minimize and maximize the objective
+        # otherwise it may complicate Milman concentration of measure
+        relax.setAttr('ModelSense', 1) # minimize
         relax.optimize()
         if relax.getAttr('Status') == gurobipy.GRB.OPTIMAL:
             # See here the division by the objective norm
-            results.append(-1 * relax.ObjVal / math.sqrt(sqnorm))
+            minimizationresults.append(relax.ObjVal / math.sqrt(sqnorm))
         else:
             # No optimal solution found: abort this instance
-            print(f"{model.Modelname:<28} | Status code {relax.getAttr('Status')} on attempt {attempts}")
+            print(f"{model.Modelname:<28} | Status code {relax.getAttr('Status')} on minimization attempt {attempts}")
+            statuscode = relax.getAttr('Status')
+            sys.stdout.flush()
+            break
+        relax.setAttr('ModelSense', -1) # maximize
+        if relax.getAttr('Status') == gurobipy.GRB.OPTIMAL:
+            # See here the division by the objective norm
+            maximizationresults.append(relax.ObjVal / math.sqrt(sqnorm))
+        else:
+            # No optimal solution found: abort this instance
+            print(f"{model.Modelname:<28} | Status code {relax.getAttr('Status')} on maximization attempt {attempts}")
             statuscode = relax.getAttr('Status')
             sys.stdout.flush()
             break
@@ -85,14 +100,20 @@ for file in os.scandir('/home/sophie/miplibbenchmark'):
         outputfile.write(f"Script version {current_script_hash}\n")
         outputfile.write(f"Gurobi version {gurobipy.gurobi.version()}\n")
         outputfile.write(f"Model name {model.Modelname}\n")
-        if len(results) == samples_per_model:
+        if len(maximizationresults) == samples_per_model:
+            # aggregate min and max results to keep old stdout format
+            results = [-x for x in minimizationresults] + maximizationresults
             outputfile.write(f"Full set of {len(results)} results\n")
-            json.dump(results, outputfile)
+            json.dump(minimizationresults, outputfile)
+            outputfile.write(f"\n")
+            json.dump(maximizationresults, outputfile)
             outputfile.write(f"\n")
             print(f"{model.Modelname:<28} | {min(results):>8.2} | {median(results):>8.2} | {mean(results):>8.2} | {max(results):>8.2}")
             sys.stdout.flush()
         else:
             outputfile.write(f"Status code {statuscode} on attempt {attempts}\n")
-            json.dump(results, outputfile)
+            json.dump(minimizationresults, outputfile)
+            outputfile.write(f"\n")
+            json.dump(maximizationresults, outputfile)
             outputfile.write(f"\n")
     sys.stdout.flush()
