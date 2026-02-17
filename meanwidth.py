@@ -83,7 +83,9 @@ for file in os.scandir('/home/sophie/miplibbenchmark'):
             statuscode = relax.getAttr('Status')
             sys.stdout.flush()
             break
+
         relax.setAttr('ModelSense', -1) # maximize
+        relax.optimize()
         if relax.getAttr('Status') == gurobipy.GRB.OPTIMAL:
             # See here the division by the objective norm
             maximizationresults.append(relax.ObjVal / math.sqrt(sqnorm))
