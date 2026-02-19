@@ -136,3 +136,143 @@ neos-4954672-berkel          |    1e+02 |  2.3e+02 |  2.3e+02 |    4e+02
 neos-5049753-cuanza          |  2.6e+01 |  2.7e+01 |  2.7e+01 |  2.7e+01
 neos-5052403-cygnet          |  1.6e+01 |  1.7e+01 |  1.7e+01 |  1.7e+01
 neos-5093327-huahum          | Status code 4 on minimization attempt 0
+Script version 7673f1835e243e653da39473886fded06752d8ec19fa9b1aa2d9eb97f22a4ad1
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2620426
+Academic license 2620426 - for non-commercial use only - registered to so___@uca.fr
+    Model Name               | Minimum |   Median  |   Mean   | Maximum
+----------------------------------------------------------------------------
+30n20b8                      | -1.3e+01 |      5.6 |      5.7 |  3.1e+01
+output/50v-10-meanwidthlog.txt already exists
+academictimetablesmall       |      5.6 |      5.9 |      5.9 |      6.3
+output/air05-meanwidthlog.txt already exists
+output/app1-1-meanwidthlog.txt already exists
+output/app1-2-meanwidthlog.txt already exists
+output/assign1-5-8-meanwidthlog.txt already exists
+output/atlanta-ip-meanwidthlog.txt already exists
+output/b1c1s1-meanwidthlog.txt already exists
+output/bab2-meanwidthlog.txt already exists
+output/bab6-meanwidthlog.txt already exists
+output/beasleyC3-meanwidthlog.txt already exists
+output/binkar10_1-meanwidthlog.txt already exists
+output/blp-ar98-meanwidthlog.txt already exists
+output/blp-ic98-meanwidthlog.txt already exists
+output/bnatt400-meanwidthlog.txt already exists
+output/bnatt500-meanwidthlog.txt already exists
+output/bppc4-08-meanwidthlog.txt already exists
+output/brazil3-meanwidthlog.txt already exists
+output/buildingenergy-meanwidthlog.txt already exists
+output/cbs-cta-meanwidthlog.txt already exists
+output/chromaticindex1024-7-meanwidthlog.txt already exists
+chromaticindex512-7          |  3.6e+01 |  3.7e+01 |  3.7e+01 |  3.8e+01
+output/cmflsp50-24-8-8-meanwidthlog.txt already exists
+output/CMS750_4-meanwidthlog.txt already exists
+output/co-100-meanwidthlog.txt already exists
+output/cod105-meanwidthlog.txt already exists
+output/comp07-2idx-meanwidthlog.txt already exists
+output/comp21-2idx-meanwidthlog.txt already exists
+output/cost266-UUE-meanwidthlog.txt already exists
+output/cryptanalysiskb128n5obj14-meanwidthlog.txt already exists
+output/cryptanalysiskb128n5obj16-meanwidthlog.txt already exists
+output/csched007-meanwidthlog.txt already exists
+output/csched008-meanwidthlog.txt already exists
+output/cvs16r128-89-meanwidthlog.txt already exists
+output/dano3_3-meanwidthlog.txt already exists
+output/dano3_5-meanwidthlog.txt already exists
+output/decomp2-meanwidthlog.txt already exists
+output/drayage-100-23-meanwidthlog.txt already exists
+output/drayage-25-23-meanwidthlog.txt already exists
+output/dws008-01-meanwidthlog.txt already exists
+output/eil33-2-meanwidthlog.txt already exists
+output/eilA101-2-meanwidthlog.txt already exists
+output/enlight_hard-meanwidthlog.txt already exists
+output/ex10-meanwidthlog.txt already exists
+output/ex9-meanwidthlog.txt already exists
+output/exp-1-500-5-5-meanwidthlog.txt already exists
+output/fast0507-meanwidthlog.txt already exists
+output/fastxgemm-n2r6s0t2-meanwidthlog.txt already exists
+output/fhnw-binpack4-4-meanwidthlog.txt already exists
+output/fhnw-binpack4-48-meanwidthlog.txt already exists
+output/fiball-meanwidthlog.txt already exists
+output/gen-ip002-meanwidthlog.txt already exists
+output/gen-ip054-meanwidthlog.txt already exists
+output/germanrr-meanwidthlog.txt already exists
+output/gfd-schedulen180f7d50m30k18-meanwidthlog.txt already exists
+output/glass-sc-meanwidthlog.txt already exists
+output/glass4-meanwidthlog.txt already exists
+output/gmu-35-40-meanwidthlog.txt already exists
+output/gmu-35-50-meanwidthlog.txt already exists
+output/graph20-20-1rand-meanwidthlog.txt already exists
+output/graphdraw-domain-meanwidthlog.txt already exists
+output/h80x6320d-meanwidthlog.txt already exists
+output/highschool1-aigio-meanwidthlog.txt already exists
+output/hypothyroid-k1-meanwidthlog.txt already exists
+output/ic97_potential-meanwidthlog.txt already exists
+output/icir97_tension-meanwidthlog.txt already exists
+output/irish-electricity-meanwidthlog.txt already exists
+output/irp-meanwidthlog.txt already exists
+output/istanbul-no-cutoff-meanwidthlog.txt already exists
+output/k1mushroom-meanwidthlog.txt already exists
+output/lectsched-5-obj-meanwidthlog.txt already exists
+output/leo1-meanwidthlog.txt already exists
+output/leo2-meanwidthlog.txt already exists
+output/lotsize-meanwidthlog.txt already exists
+output/mad-meanwidthlog.txt already exists
+output/map10-meanwidthlog.txt already exists
+output/map16715-04-meanwidthlog.txt already exists
+output/markshare_4_0-meanwidthlog.txt already exists
+output/markshare2-meanwidthlog.txt already exists
+output/mas74-meanwidthlog.txt already exists
+output/mas76-meanwidthlog.txt already exists
+output/mc11-meanwidthlog.txt already exists
+output/mcsched-meanwidthlog.txt already exists
+output/mik-250-20-75-4-meanwidthlog.txt already exists
+output/milo-v12-6-r2-40-1-meanwidthlog.txt already exists
+output/momentum1-meanwidthlog.txt already exists
+output/mushroom-best-meanwidthlog.txt already exists
+output/mzzv11-meanwidthlog.txt already exists
+output/mzzv42z-meanwidthlog.txt already exists
+output/n2seq36q-meanwidthlog.txt already exists
+output/n3div36-meanwidthlog.txt already exists
+output/n5-3-meanwidthlog.txt already exists
+output/neos-1122047-meanwidthlog.txt already exists
+output/neos-1171448-meanwidthlog.txt already exists
+output/neos-1171737-meanwidthlog.txt already exists
+output/neos-1354092-meanwidthlog.txt already exists
+output/neos-1445765-meanwidthlog.txt already exists
+output/neos-1456979-meanwidthlog.txt already exists
+output/neos-1582420-meanwidthlog.txt already exists
+output/neos-2075418-temuka-meanwidthlog.txt already exists
+output/neos-2657525-crna-meanwidthlog.txt already exists
+output/neos-2746589-doon-meanwidthlog.txt already exists
+output/neos-2978193-inde-meanwidthlog.txt already exists
+output/neos-2987310-joes-meanwidthlog.txt already exists
+output/neos-3004026-krka-meanwidthlog.txt already exists
+output/neos-3024952-loue-meanwidthlog.txt already exists
+output/neos-3046615-murg-meanwidthlog.txt already exists
+output/neos-3083819-nubu-meanwidthlog.txt already exists
+output/neos-3216931-puriri-meanwidthlog.txt already exists
+output/neos-3381206-awhea-meanwidthlog.txt already exists
+output/neos-3402294-bobin-meanwidthlog.txt already exists
+output/neos-3402454-bohle-meanwidthlog.txt already exists
+output/neos-3555904-turama-meanwidthlog.txt already exists
+output/neos-3627168-kasai-meanwidthlog.txt already exists
+output/neos-3656078-kumeu-meanwidthlog.txt already exists
+output/neos-3754480-nidda-meanwidthlog.txt already exists
+output/neos-3988577-wolgan-meanwidthlog.txt already exists
+output/neos-4300652-rahue-meanwidthlog.txt already exists
+output/neos-4338804-snowy-meanwidthlog.txt already exists
+output/neos-4387871-tavua-meanwidthlog.txt already exists
+output/neos-4413714-turia-meanwidthlog.txt already exists
+output/neos-4532248-waihi-meanwidthlog.txt already exists
+output/neos-4647030-tutaki-meanwidthlog.txt already exists
+output/neos-4722843-widden-meanwidthlog.txt already exists
+output/neos-4738912-atrato-meanwidthlog.txt already exists
+output/neos-4763324-toguru-meanwidthlog.txt already exists
+output/neos-4954672-berkel-meanwidthlog.txt already exists
+neos-5049753-cuanza          |  2.6e+01 |  2.7e+01 |  2.7e+01 |  2.7e+01
+neos-5052403-cygnet          |  1.6e+01 |  1.7e+01 |  1.7e+01 |  1.7e+01
+neos-5093327-huahum          | Status code 4 on minimization attempt 0
+neos-5104907-jarama          |  6.4e+01 |  6.4e+01 |  6.4e+01 |  6.5e+01
+neos-5107597-kakapo          | Status code 4 on minimization attempt 0
