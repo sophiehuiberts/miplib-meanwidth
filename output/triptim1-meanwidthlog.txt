@@ -1,0 +1,6 @@
+Script version 7673f1835e243e653da39473886fded06752d8ec19fa9b1aa2d9eb97f22a4ad1
+Gurobi version (13, 0, 1)
+Model name triptim1
+Status code 4 on attempt 0
+[]
+[]
