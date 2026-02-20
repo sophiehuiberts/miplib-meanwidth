@@ -276,3 +276,250 @@ neos-5052403-cygnet          |  1.6e+01 |  1.7e+01 |  1.7e+01 |  1.7e+01
 neos-5093327-huahum          | Status code 4 on minimization attempt 0
 neos-5104907-jarama          |  6.4e+01 |  6.4e+01 |  6.4e+01 |  6.5e+01
 neos-5107597-kakapo          | Status code 4 on minimization attempt 0
+Script version 7673f1835e243e653da39473886fded06752d8ec19fa9b1aa2d9eb97f22a4ad1
+Set parameter WLSAccessID
+Set parameter WLSSecret
+Set parameter LicenseID to value 2620426
+Academic license 2620426 - for non-commercial use only - registered to so___@uca.fr
+    Model Name               | Minimum |   Median  |   Mean   | Maximum
+----------------------------------------------------------------------------
+output/30n20b8-meanwidthlog.txt already exists
+output/50v-10-meanwidthlog.txt already exists
+output/academictimetablesmall-meanwidthlog.txt already exists
+output/air05-meanwidthlog.txt already exists
+output/app1-1-meanwidthlog.txt already exists
+output/app1-2-meanwidthlog.txt already exists
+output/assign1-5-8-meanwidthlog.txt already exists
+output/atlanta-ip-meanwidthlog.txt already exists
+output/b1c1s1-meanwidthlog.txt already exists
+output/bab2-meanwidthlog.txt already exists
+output/bab6-meanwidthlog.txt already exists
+output/beasleyC3-meanwidthlog.txt already exists
+output/binkar10_1-meanwidthlog.txt already exists
+output/blp-ar98-meanwidthlog.txt already exists
+output/blp-ic98-meanwidthlog.txt already exists
+output/bnatt400-meanwidthlog.txt already exists
+output/bnatt500-meanwidthlog.txt already exists
+output/bppc4-08-meanwidthlog.txt already exists
+output/brazil3-meanwidthlog.txt already exists
+output/buildingenergy-meanwidthlog.txt already exists
+output/cbs-cta-meanwidthlog.txt already exists
+output/chromaticindex1024-7-meanwidthlog.txt already exists
+output/chromaticindex512-7-meanwidthlog.txt already exists
+output/cmflsp50-24-8-8-meanwidthlog.txt already exists
+output/CMS750_4-meanwidthlog.txt already exists
+output/co-100-meanwidthlog.txt already exists
+output/cod105-meanwidthlog.txt already exists
+output/comp07-2idx-meanwidthlog.txt already exists
+output/comp21-2idx-meanwidthlog.txt already exists
+output/cost266-UUE-meanwidthlog.txt already exists
+output/cryptanalysiskb128n5obj14-meanwidthlog.txt already exists
+output/cryptanalysiskb128n5obj16-meanwidthlog.txt already exists
+output/csched007-meanwidthlog.txt already exists
+output/csched008-meanwidthlog.txt already exists
+output/cvs16r128-89-meanwidthlog.txt already exists
+output/dano3_3-meanwidthlog.txt already exists
+output/dano3_5-meanwidthlog.txt already exists
+output/decomp2-meanwidthlog.txt already exists
+output/drayage-100-23-meanwidthlog.txt already exists
+output/drayage-25-23-meanwidthlog.txt already exists
+output/dws008-01-meanwidthlog.txt already exists
+output/eil33-2-meanwidthlog.txt already exists
+output/eilA101-2-meanwidthlog.txt already exists
+output/enlight_hard-meanwidthlog.txt already exists
+output/ex10-meanwidthlog.txt already exists
+output/ex9-meanwidthlog.txt already exists
+output/exp-1-500-5-5-meanwidthlog.txt already exists
+output/fast0507-meanwidthlog.txt already exists
+output/fastxgemm-n2r6s0t2-meanwidthlog.txt already exists
+output/fhnw-binpack4-4-meanwidthlog.txt already exists
+output/fhnw-binpack4-48-meanwidthlog.txt already exists
+output/fiball-meanwidthlog.txt already exists
+output/gen-ip002-meanwidthlog.txt already exists
+output/gen-ip054-meanwidthlog.txt already exists
+output/germanrr-meanwidthlog.txt already exists
+output/gfd-schedulen180f7d50m30k18-meanwidthlog.txt already exists
+output/glass-sc-meanwidthlog.txt already exists
+output/glass4-meanwidthlog.txt already exists
+output/gmu-35-40-meanwidthlog.txt already exists
+output/gmu-35-50-meanwidthlog.txt already exists
+output/graph20-20-1rand-meanwidthlog.txt already exists
+output/graphdraw-domain-meanwidthlog.txt already exists
+output/h80x6320d-meanwidthlog.txt already exists
+output/highschool1-aigio-meanwidthlog.txt already exists
+output/hypothyroid-k1-meanwidthlog.txt already exists
+output/ic97_potential-meanwidthlog.txt already exists
+output/icir97_tension-meanwidthlog.txt already exists
+output/irish-electricity-meanwidthlog.txt already exists
+output/irp-meanwidthlog.txt already exists
+output/istanbul-no-cutoff-meanwidthlog.txt already exists
+output/k1mushroom-meanwidthlog.txt already exists
+output/lectsched-5-obj-meanwidthlog.txt already exists
+output/leo1-meanwidthlog.txt already exists
+output/leo2-meanwidthlog.txt already exists
+output/lotsize-meanwidthlog.txt already exists
+output/mad-meanwidthlog.txt already exists
+output/map10-meanwidthlog.txt already exists
+output/map16715-04-meanwidthlog.txt already exists
+output/markshare_4_0-meanwidthlog.txt already exists
+output/markshare2-meanwidthlog.txt already exists
+output/mas74-meanwidthlog.txt already exists
+output/mas76-meanwidthlog.txt already exists
+output/mc11-meanwidthlog.txt already exists
+output/mcsched-meanwidthlog.txt already exists
+output/mik-250-20-75-4-meanwidthlog.txt already exists
+output/milo-v12-6-r2-40-1-meanwidthlog.txt already exists
+output/momentum1-meanwidthlog.txt already exists
+output/mushroom-best-meanwidthlog.txt already exists
+output/mzzv11-meanwidthlog.txt already exists
+output/mzzv42z-meanwidthlog.txt already exists
+output/n2seq36q-meanwidthlog.txt already exists
+output/n3div36-meanwidthlog.txt already exists
+output/n5-3-meanwidthlog.txt already exists
+output/neos-1122047-meanwidthlog.txt already exists
+output/neos-1171448-meanwidthlog.txt already exists
+output/neos-1171737-meanwidthlog.txt already exists
+output/neos-1354092-meanwidthlog.txt already exists
+output/neos-1445765-meanwidthlog.txt already exists
+output/neos-1456979-meanwidthlog.txt already exists
+output/neos-1582420-meanwidthlog.txt already exists
+output/neos-2075418-temuka-meanwidthlog.txt already exists
+output/neos-2657525-crna-meanwidthlog.txt already exists
+output/neos-2746589-doon-meanwidthlog.txt already exists
+output/neos-2978193-inde-meanwidthlog.txt already exists
+output/neos-2987310-joes-meanwidthlog.txt already exists
+output/neos-3004026-krka-meanwidthlog.txt already exists
+output/neos-3024952-loue-meanwidthlog.txt already exists
+output/neos-3046615-murg-meanwidthlog.txt already exists
+output/neos-3083819-nubu-meanwidthlog.txt already exists
+output/neos-3216931-puriri-meanwidthlog.txt already exists
+output/neos-3381206-awhea-meanwidthlog.txt already exists
+output/neos-3402294-bobin-meanwidthlog.txt already exists
+output/neos-3402454-bohle-meanwidthlog.txt already exists
+output/neos-3555904-turama-meanwidthlog.txt already exists
+output/neos-3627168-kasai-meanwidthlog.txt already exists
+output/neos-3656078-kumeu-meanwidthlog.txt already exists
+output/neos-3754480-nidda-meanwidthlog.txt already exists
+output/neos-3988577-wolgan-meanwidthlog.txt already exists
+output/neos-4300652-rahue-meanwidthlog.txt already exists
+output/neos-4338804-snowy-meanwidthlog.txt already exists
+output/neos-4387871-tavua-meanwidthlog.txt already exists
+output/neos-4413714-turia-meanwidthlog.txt already exists
+output/neos-4532248-waihi-meanwidthlog.txt already exists
+output/neos-4647030-tutaki-meanwidthlog.txt already exists
+output/neos-4722843-widden-meanwidthlog.txt already exists
+output/neos-4738912-atrato-meanwidthlog.txt already exists
+output/neos-4763324-toguru-meanwidthlog.txt already exists
+output/neos-4954672-berkel-meanwidthlog.txt already exists
+output/neos-5049753-cuanza-meanwidthlog.txt already exists
+output/neos-5052403-cygnet-meanwidthlog.txt already exists
+output/neos-5093327-huahum-meanwidthlog.txt already exists
+output/neos-5104907-jarama-meanwidthlog.txt already exists
+output/neos-5107597-kakapo-meanwidthlog.txt already exists
+output/neos-5114902-kasavu-meanwidthlog.txt already exists
+neos-5188808-nattai          |    1e+01 |  1.1e+01 |  1.1e+01 |  1.2e+01
+neos-5195221-niemur          | Status code 4 on maximization attempt 0
+neos-631710                  |      2.1 |      2.2 |      2.2 |      2.4
+neos-662469                  |      4.2 |      4.7 |      4.7 |      5.3
+neos-787933                  |  1.9e+02 |  1.9e+02 |  1.9e+02 |  1.9e+02
+neos-827175                  |    2e+01 |  2.3e+01 |  2.3e+01 |  2.7e+01
+neos-848589                  |  1.9e+02 |  1.9e+02 |  1.9e+02 |  1.9e+02
+neos-860300                  |     0.31 |      0.5 |     0.66 |      1.9
+neos-873061                  |  1.4e+02 |  1.4e+02 |  1.4e+02 |  1.4e+02
+neos-911970                  | Status code 4 on minimization attempt 0
+neos-933966                  | Status code 4 on minimization attempt 0
+neos-950242                  |      6.4 |      8.1 |      8.1 |    1e+01
+neos-957323                  |      2.5 |      2.6 |      2.6 |      2.7
+neos-960392                  |      2.7 |      2.9 |      2.9 |      3.1
+neos17                       |      7.1 |      8.3 |      8.4 |      9.6
+neos5                        |      1.9 |      3.2 |      3.2 |      4.7
+neos8                        |      1.5 |    1e+01 |  1.1e+01 |  2.9e+01
+neos859080                   |      5.7 |      9.9 |    1e+01 |  1.6e+01
+net12                        |  5.3e+01 |  5.4e+01 |  5.4e+01 |  5.5e+01
+netdiversion                 |    5e+01 |  5.1e+01 |  5.1e+01 |  5.1e+01
+nexp-150-20-8-5              |  1.6e+03 |  1.7e+03 |  1.7e+03 |  1.8e+03
+ns1116954                    |  1.2e+01 |  1.2e+01 |  1.2e+01 |  1.3e+01
+ns1208400                    |      3.0 |      3.4 |      3.4 |      3.7
+ns1644855                    |  1.5e+03 |  1.6e+03 |  1.6e+03 |  1.7e+03
+ns1760995                    | Status code 4 on minimization attempt 0
+ns1830653                    |      2.2 |      2.9 |      2.9 |      3.6
+ns1952667                    |  1.3e+01 |  1.4e+01 |  1.4e+01 |  1.6e+01
+nu25-pr12                    | Status code 4 on minimization attempt 0
+nursesched-medium-hint03     |  1.9e+01 |    2e+01 |    2e+01 |  2.1e+01
+nursesched-sprint02          |      6.7 |      7.5 |      7.5 |      8.8
+nw04                         |    0.055 |     0.07 |    0.071 |    0.098
+opm2-z10-s4                  |      3.5 |      4.6 |      4.6 |      5.6
+p200x1188c                   |  2.9e+04 |  3.4e+04 |  3.3e+04 |  3.7e+04
+peg-solitaire-a3             |      1.4 |      2.6 |      2.6 |      3.6
+pg                           |  2.5e+02 |    4e+02 |  3.9e+02 |  5.8e+02
+pg5_34                       |  1.7e+01 |  1.8e+01 |  1.8e+01 |  1.8e+01
+physiciansched3-3            | Status code 4 on minimization attempt 0
+physiciansched6-2            | Status code 4 on minimization attempt 0
+piperout-08                  | -2.8e+03 |    6e+01 |  7.5e+03 |    6e+04
+piperout-27                  | -1.6e+02 |    5e+01 |  3.7e+02 |  2.8e+03
+pk1                          | Status code 4 on minimization attempt 0
+proteindesign121hz512p9      | -1.1e+01 |  2.3e+02 |  2.3e+02 |  5.3e+02
+proteindesign122trx11p8      |     -9.8 |  1.5e+02 |  1.6e+02 |  3.6e+02
+qap10                        |     0.61 |     0.67 |     0.67 |     0.74
+radiationm18-12-05           | -2.1e+02 |  1.2e+02 |  1.3e+03 |  8.7e+03
+radiationm40-10-02           | -7.9e+02 |    8e+02 |  1.2e+04 |  7.1e+04
+rail01                       |      2.0 |      2.3 |      2.3 |      2.6
+rail02                       |      1.5 |      1.7 |      1.7 |      1.8
+rail507                      | Status code 4 on minimization attempt 0
+ran14x18-disj-8              |  1.9e+01 |  2.4e+01 |  2.4e+01 |  2.9e+01
+rd-rplusc-21                 | Status code 4 on maximization attempt 0
+reblock115                   |      2.2 |      3.7 |      3.7 |      5.7
+rmatr100-p10                 | Status code 4 on minimization attempt 0
+rmatr200-p5                  | Status code 4 on minimization attempt 0
+rocI-4-11                    |    1e+01 |  4.1e+03 |  5.3e+04 |  3.5e+05
+rocII-5-11                   |      1.0 |      1.4 |      1.4 |      1.6
+rococoB10-011000             | -1.7e+02 |  1.2e+03 |  1.4e+03 |  5.9e+03
+rococoC10-001000             |  1.4e+04 |  4.2e+04 |  4.2e+04 |  8.3e+04
+roi2alpha3n4                 |     0.72 |     0.82 |     0.83 |     0.92
+roi5alpha10n8                |     0.67 |      0.7 |      0.7 |     0.73
+roll3000                     | Status code 4 on maximization attempt 0
+s100                         |     0.28 |     0.36 |     0.36 |     0.45
+s250r10                      |      1.0 |    3e+01 |    4e+01 |  1.7e+02
+satellites2-40               |  4.3e+05 |  4.9e+05 |  4.8e+05 |  5.4e+05
+satellites2-60-fs            |  4.3e+05 |  4.9e+05 |  4.8e+05 |  5.4e+05
+savsched1                    | Status code 4 on minimization attempt 0
+sct2                         | Status code 4 on minimization attempt 0
+seymour                      |  1.1e+01 |  1.3e+01 |  1.3e+01 |  1.4e+01
+seymour1                     |  1.1e+01 |  1.3e+01 |  1.3e+01 |  1.4e+01
+sing326                      |  1.3e+03 |  1.3e+03 |  1.3e+03 |  1.4e+03
+sing44                       |  1.3e+03 |  1.3e+03 |  1.3e+03 |  1.4e+03
+snp-02-004-104               | Status code 4 on minimization attempt 0
+sorrell3                     |      5.7 |      6.4 |      6.4 |      7.0
+sp150x300d                   |  8.5e+02 |  1.2e+03 |  1.2e+03 |  1.6e+03
+sp97ar                       |  1.5e+01 |  1.5e+01 |  1.5e+01 |  1.6e+01
+sp98ar                       |  1.2e+01 |  1.2e+01 |  1.2e+01 |  1.2e+01
+splice1k1                    |    2e+01 |  2.6e+01 |  3.2e+01 |  7.2e+01
+square41                     |     0.18 |      3.0 |      4.3 |  2.1e+01
+square47                     |      0.4 |      3.0 |      4.0 |  1.5e+01
+supportcase10                |  1.7e+01 |  1.9e+01 |  1.9e+01 |  2.1e+01
+supportcase12                |  6.7e+01 |  6.8e+01 |  6.8e+01 |    7e+01
+supportcase18                |      2.7 |      2.9 |      2.9 |      3.0
+supportcase19                |     0.93 |     0.94 |     0.94 |     0.95
+supportcase22                |      3.6 |      4.1 |      4.1 |      4.6
+supportcase26                | Status code 5 on maximization attempt 0
+supportcase33                | -3.9e+01 |  1.3e+01 |  1.3e+01 |  6.7e+01
+supportcase40                | Status code 4 on minimization attempt 0
+supportcase42                | Status code 4 on minimization attempt 0
+supportcase6                 |     0.17 |     0.26 |     0.27 |     0.49
+supportcase7                 | Status code 4 on minimization attempt 0
+swath1                       | Status code 4 on minimization attempt 0
+swath3                       | Status code 4 on minimization attempt 0
+tbfp-network                 |     0.26 |     0.27 |     0.27 |     0.27
+thor50dday                   |  3.2e+03 |  3.2e+03 |  3.2e+03 |  3.3e+03
+timtab1                      |  1.3e+02 |  1.8e+02 |  1.8e+02 |  2.3e+02
+tr12-30                      |  2.6e+03 |  3.5e+03 |  3.5e+03 |  4.8e+03
+traininstance2               | -1.7e+04 |  1.6e+05 |  1.8e+05 |  7.3e+05
+traininstance6               | -1.2e+04 |  1.5e+05 |  1.7e+05 |    5e+05
+trento1                      |  1.5e+03 |  1.4e+04 |  1.5e+04 |  3.9e+04
+triptim1                     | Status code 4 on minimization attempt 0
+uccase12                     | Status code 4 on minimization attempt 0
+uccase9                      | Status code 4 on minimization attempt 0
+uct-subprob                  |      9.8 |  1.1e+01 |  1.1e+01 |  1.3e+01
+unitcal_7                    |  6.4e+02 |  5.8e+03 |  5.9e+03 |  1.3e+04
+var-smallemery-m6j6          | Status code 4 on maximization attempt 0
+wachplan                     |      4.5 |      5.4 |      5.4 |      6.3
