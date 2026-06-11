@@ -11,14 +11,12 @@ The results are written to the output/ directory, with either a status code or a
 Due to the length of the computation, we have done our best to make it possible to recompute for only a single instance. For that reason, the code will check whether the destination log file already exists and only do the hard computer work if it finds so such existing file.
 We have done our best to make everything deterministic, and at least on Huiberts' machine it seems to reproduce.
 
-The script histograms.py uses the log files in output/ and draw histograms of the individual sample widths for every instance. These histograms are written as png files to histograms/ and may give some intuition for what the distributions look like.
-
 Assorted post-hoc data analysis is performed in the script means.py, including the numbers reported in the paper.
 
 To see the state of the repository as it was for an earlier paper version, please look at the git tags.
 
 
-If you want to see the code work, run createtestproblems.py to create some instances, then run meanwidth.py for the actual computations using Gurobi, and finally run analysis.py or histograms.py to get some summaries of the generated outputs.
+If you want to see the code work, run createtestproblems.py to create some instances, then run meanwidth.py for the actual computations using Gurobi, and finally run analysis.py to get some summaries of the generated outputs.
 To run with netlib and miplib instances, you need to acquire those and put the mps files in input/netlib and input/miplib.
 
 Logs from my own run of meanwidth.py are included in the output directory, so you can also directly modify analysis.py if you are interested in making statistics.
