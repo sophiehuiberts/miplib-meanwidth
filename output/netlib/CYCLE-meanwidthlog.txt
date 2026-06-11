@@ -1,0 +1,8 @@
+Script version b87b35861c3ed787144dcc247c45807fe781f70546bb3f40c8b798db33a1b7af
+Gurobi version (13, 0, 1)
+Model name CYCLE
+Variable count 2857
+Equality count 1389
+Status code 4 on attempt 0
+[]
+[]
