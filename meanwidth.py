@@ -127,12 +127,18 @@ def find_meanwidth(file, testset):
     sys.stdout.flush()
 
 Path("output").mkdir(exist_ok=True)
-Path("output/tests").mkdir(exist_ok=True)
 Path("output/netlib").mkdir(exist_ok=True)
 Path("output/miplib").mkdir(exist_ok=True)
-for file in os.scandir('./input/tests'):
-    find_meanwidth(file, 'tests')
-for file in os.scandir('./input/netlib'):
-    find_meanwidth(file, 'netlib')
-for file in os.scandir('./input/miplibbenchmark'):
-    find_meanwidth(file, 'miplib')
+
+if Path('input/tests').is_dir():
+    Path("output/tests").mkdir(exist_ok=True)
+    for file in os.scandir('./input/tests'):
+        find_meanwidth(file, 'tests')
+
+if Path('input/netlib').is_dir():
+    for file in os.scandir('./input/netlib'):
+        find_meanwidth(file, 'netlib')
+
+if Path('input/miplib').is_dir():
+    for file in os.scandir('./input/miplib'):
+        find_meanwidth(file, 'miplib')

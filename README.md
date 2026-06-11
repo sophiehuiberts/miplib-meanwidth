@@ -16,3 +16,11 @@ The script histograms.py uses the log files in output/ and draw histograms of th
 Assorted post-hoc data analysis is performed in the script means.py, including the numbers reported in the paper.
 
 To see the state of the repository as it was for an earlier paper version, please look at the git tags.
+
+
+If you want to see the code work, run createtestproblems.py to create some instances, then run meanwidth.py for the actual computations using Gurobi, and finally run analysis.py or histograms.py to get some summaries of the generated outputs.
+To run with netlib and miplib instances, you need to acquire those and put the mps files in input/netlib and input/miplib.
+
+Logs from my own run of meanwidth.py are included in the output directory, so you can also directly modify analysis.py if you are interested in making statistics.
+
+Note: meanwidth.py will skip over any instance that already has an associated output file. Therefore to rerun any instance you first manually have to delete the corresponding output log. This should make it easy to verify that the results reproduce on individual instances.
