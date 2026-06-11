@@ -8,6 +8,7 @@ import sys
 from statistics import stdev, mean, median
 import json
 import hashlib
+import matplotlib.pyplot as plt
 
 # Ensure any stale intermediate files are caught by hashing current script
 with open(__file__,"rb") as f:
@@ -31,6 +32,10 @@ def analyze(lib):
     samplemeansphaseone = []
 
     samplemeansoversqrtdim = []
+    samplemeansoversqrtdof = []
+    variablecounts = []
+    degreesoffreedomcounts = []
+
     for direntry in os.scandir(f"output/{lib}"):
         f = open(direntry, 'r')
 
@@ -38,6 +43,7 @@ def analyze(lib):
         gurobiversionline = f.readline()
         modelnameline = f.readline()
         variablecountline = f.readline()
+        equalitycountline = f.readline()
         statuscodeline = f.readline()
         minimizationline = f.readline()
         maximizationline = f.readline()
@@ -46,17 +52,16 @@ def analyze(lib):
 
         # To be honest I don't know how well these results will reproduce on a different machine.
         # But at least the script version and Gurobi version can be accounted.
-        if scriptversionline != "Script version 52f22af56bc1dec8f3818c7645bba3d3bc3a790f4872f261514252baa5386e0d\n":
-            print(f"{os.fsdecode(f)} produced by wrong script version")
+        if scriptversionline != "Script version b87b35861c3ed787144dcc247c45807fe781f70546bb3f40c8b798db33a1b7af\n":
+            print(f"{os.fsdecode(direntry)} produced by wrong script version")
             exit()
         if gurobiversionline != "Gurobi version (13, 0, 1)\n":
-            print(f"{os.fsdecode(f)} produced with wrong Gurobi version")
+            print(f"{os.fsdecode(direntry)} produced with wrong Gurobi version")
             exit()
         if modelnameline[:11] != "Model name ":
-            print(f"{os.fsdecode(f)} has no proper model name line")
+            print(f"{os.fsdecode(direntry)} has no proper model name line")
             exit()
         model = modelnameline[11:-1]
-        variablecount = int(variablecountline.split(' ')[2])
         if statuscodeline != "Full set of 200 results\n":
             statuscode = statuscodeline.split(' ')[2]
             if statuscode == "16":
@@ -80,6 +85,11 @@ def analyze(lib):
             continue
         minimums = json.loads(minimizationline)
         maximums = json.loads(maximizationline)
+
+        variablecount = int(variablecountline.split(' ')[2])
+        variablecounts.append(variablecount)
+        equalitycount = int(equalitycountline.split(' ')[2])
+        degreesoffreedomcounts.append(variablecount - equalitycount)
 
         if len(minimums) != 100:
             print(f"{os.fsdecode(f)} has {len(minimums)} minimization results instead of 100")
@@ -108,8 +118,12 @@ def analyze(lib):
         samplemeansphaseone.append(sample_mean_phaseone)
 
         samplemeansoversqrtdim.append(sample_mean_feasible/math.sqrt(variablecount))
+        samplemeansoversqrtdof.append(sample_mean_feasible/math.sqrt(variablecount-equalitycount))
 
         print(f"{model:<28}   {min(widths):>12.2f}   {sample_mean_feasible:>12.2f}   {max(widths):>12.2f}   {sample_mean_feasible/math.sqrt(variablecount):>12.2}")
+
+
+
     print(f"{len(unboundeds)} unboundeds")
     print(f"{len(worklimits)} work limits")
     print(f"{len(othererrors)} other errors")
@@ -134,9 +148,21 @@ def analyze(lib):
     print(f"{len([x for x in samplemeansoversqrtdim if x > 1e3 and x < 1e4])} between 1e3 and 1e4")
     print(f"{len([x for x in samplemeansoversqrtdim if x > 1e4])} over 1e4")
 
+    return samplemeans, variablecounts, degreesoffreedomcounts
+
+fig,ax = plt.subplots()
+
 if Path('output/tests').is_dir():
-    analyze('tests')
+    means,varcounts,degreesoffreedom = analyze('tests')
+    ax.scatter(varcounts,means,marker='s',c='yellow',label="Unit cubes")
 if Path('output/netlib').is_dir():
-    analyze('netlib')
+    means,varcounts,degreesoffreedom = analyze('netlib')
+    ax.scatter(varcounts,means,marker='^',c='green',label="NETLIB")
 if Path('output/miplib').is_dir():
-    analyze('miplib')
+    means,varcounts,degreesoffreedom = analyze('miplib')
+    ax.scatter(varcounts,means,marker='o',c='blue',label="MIPLIB")
+ax.set_ylabel("Sample mean width (n=100)")
+ax.set_xlabel("Variable count")
+ax.loglog()
+ax.legend()
+plt.savefig('meanwidth-varcount-plot.png')
