@@ -22,11 +22,13 @@ def analyze(lib):
     print(f"------------------------------------------------------------------------------")
     worklimits = []
     unboundeds = []
+    othererrors = []
     successes = 0
 
     samplemeans = []
     samplestdsovermeans = []
     samplemaxes = []
+    samplemeansphaseone = []
     for direntry in os.scandir(f"output/{lib}"):
         f = open(direntry, 'r')
 
@@ -65,11 +67,13 @@ def analyze(lib):
                 print(" WARNING")
                 print(f" RUN {model} WAS ABANDONED BY USER ")
                 print("=========================================")
+                othererrors.append(model)
             else:
                 print("=========================================")
                 print(" WARNING")
                 print(f" RUN {model} HAS UNKNOWN STATUS CODE ")
                 print("=========================================")
+                othererrors.append(model)
             continue
         minimums = json.loads(minimizationline)
         maximums = json.loads(maximizationline)
@@ -98,10 +102,12 @@ def analyze(lib):
 
         sample_mean_phaseone = mean(convorigin_widths)
         sample_stdev_phaseone = stdev(convorigin_widths)
+        samplemeansphaseone.append(sample_mean_phaseone)
 
         print(f"{model:<28}   {min(widths):>12.2f}   {sample_mean_feasible:>12.2f}   {max(widths):>12.2f}")
     print(f"{len(unboundeds)} unboundeds")
     print(f"{len(worklimits)} work limits")
+    print(f"{len(othererrors)} other errors")
     print(f"{successes} successes")
     print(f"{len(unboundeds) + len(worklimits) + successes} instances total.")
 
@@ -113,15 +119,6 @@ def analyze(lib):
     print(f"{len([x for x in samplemeans if x > 1e4 and x < 1e6])} means between 1e4 and 1e6")
     print(f"{len([x for x in samplemeans if x > 1e6 and x < 1e9])} means between 1e6 and 1e9")
     print(f"{len([x for x in samplemeans if x > 1e9])} means over 1e9")
-
-    print("===== maxes summary =====")
-    print(f"{len([x for x in samplemaxes if x < 1e-1])} maxes below 1e-1")
-    print(f"{len([x for x in samplemaxes if x > 1e-1 and x < 1e1])} maxes between 1e-1 and 1e1")
-    print(f"{len([x for x in samplemaxes if x > 1e1 and x < 1e2])} maxes between 1e1 and 1e2")
-    print(f"{len([x for x in samplemaxes if x > 1e2 and x < 1e4])} maxes between 1e2 and 1e4")
-    print(f"{len([x for x in samplemaxes if x > 1e4 and x < 1e6])} maxes between 1e4 and 1e6")
-    print(f"{len([x for x in samplemaxes if x > 1e6 and x < 1e9])} maxes between 1e6 and 1e9")
-    print(f"{len([x for x in samplemaxes if x > 1e9])} maxes over 1e9")
 
 if Path('output/tests').is_dir():
     analyze('tests')
