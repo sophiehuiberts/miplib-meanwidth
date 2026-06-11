@@ -126,13 +126,13 @@ def analyze(lib):
     print(f"{len([x for x in samplemeans if x > 1e9])} means over 1e9")
 
     print("===== sample means over sqrt(dim) summary =====")
-    print(f"{len([x for x in samplemeansoversqrtdim if x < 1e-1])} below 1e-1")
+    print(f"{len([x for x in samplemeansoversqrtdim if x < 1e-2])} below 1e-2")
+    print(f"{len([x for x in samplemeansoversqrtdim if x > 1e-2 and x < 1e-1])} between 1e-2 and 1e-1")
     print(f"{len([x for x in samplemeansoversqrtdim if x > 1e-1 and x < 1e1])} between 1e-1 and 1e1")
     print(f"{len([x for x in samplemeansoversqrtdim if x > 1e1 and x < 1e2])} between 1e1 and 1e2")
-    print(f"{len([x for x in samplemeansoversqrtdim if x > 1e2 and x < 1e4])} between 1e2 and 1e4")
-    print(f"{len([x for x in samplemeansoversqrtdim if x > 1e4 and x < 1e6])} between 1e4 and 1e6")
-    print(f"{len([x for x in samplemeansoversqrtdim if x > 1e6 and x < 1e9])} between 1e6 and 1e9")
-    print(f"{len([x for x in samplemeansoversqrtdim if x > 1e9])} over 1e9")
+    print(f"{len([x for x in samplemeansoversqrtdim if x > 1e2 and x < 1e3])} between 1e2 and 1e3")
+    print(f"{len([x for x in samplemeansoversqrtdim if x > 1e3 and x < 1e4])} between 1e3 and 1e4")
+    print(f"{len([x for x in samplemeansoversqrtdim if x > 1e4])} over 1e4")
 
 if Path('output/tests').is_dir():
     analyze('tests')
