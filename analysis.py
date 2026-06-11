@@ -16,8 +16,8 @@ with open(__file__,"rb") as f:
 print(f"    Model Name               | Minimum |   Median  |   Mean   | Maximum")
 print(f"----------------------------------------------------------------------------")
 
-worklimitcount = 0
-unboundedcount = 0
+worklimits = []
+unboundeds = []
 successes = 0
 
 samplemeans = []
@@ -54,11 +54,11 @@ for direntry in os.scandir('output/tests'):
     if statuscodeline != "Full set of 200 results\n":
         statuscode = statuscodeline.split(' ')[2]
         if statuscode == "16":
-            worklimitcount = worklimitcount + 1
+            worklimits.append(model)
         if statuscode == "4":
-            unboundedcount = unboundedcount + 1
+            unboundeds.append(model)
         if statuscode == "5":
-            unboundedcount = unboundedcount + 1
+            unboundeds.append(model)
         continue
     minimums = json.loads(minimizationline)
     maximums = json.loads(maximizationline)
@@ -90,10 +90,10 @@ for direntry in os.scandir('output/tests'):
 
     print(f"{model:<28}     {min(widths)}       {sample_mean_feasible}      {sample_stdev}")
 
-print(f"{unboundedcount} unboundeds")
-print(f"{worklimitcount} work limits")
+print(f"{len(unboundeds)} unboundeds")
+print(f"{worklimits} work limits")
 print(f"{successes} successes")
-print(f"{unboundedcount + worklimitcount + successes} total. For MIPLIB 2017 benchmark this should be 240")
+print(f"{len(unboundeds) + len(worklimits) + successes} total. For MIPLIB 2017 benchmark this should be 240")
 
 print("===== means summary =====")
 print(f"{len([x for x in samplemeans if x < 1e-1])} means below 1e-1")
