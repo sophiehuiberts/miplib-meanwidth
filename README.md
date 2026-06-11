@@ -25,3 +25,12 @@ Note: meanwidth.py will skip over any instance that already has an associated ou
 
 In my own run I downloaded the NETLIB instances from here: https://github.com/SkyLiu0/netlib/tree/d7193c4d5e1d0824d2e33b2ba17191f328582459
 We only use the feasible instances.
+
+
+
+Changes compared to arxiv-v1:
+- Variable counts are included, allowing us to plot mean width versus dimension.
+- Code can now use NETLIB as well as MIPLIB instances, since the structure of typical LPs is a bit different from those of MIP LP relaxations. Thanks to Julian Hall for the suggestion.
+- Improved error handling
+- More pretty printing
+- Added unit cubes as a little reference set
