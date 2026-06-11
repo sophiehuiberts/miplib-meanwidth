@@ -24,3 +24,6 @@ To run with netlib and miplib instances, you need to acquire those and put the m
 Logs from my own run of meanwidth.py are included in the output directory, so you can also directly modify analysis.py if you are interested in making statistics.
 
 Note: meanwidth.py will skip over any instance that already has an associated output file. Therefore to rerun any instance you first manually have to delete the corresponding output log. This should make it easy to verify that the results reproduce on individual instances.
+
+In my own run I downloaded the NETLIB instances from here: https://github.com/SkyLiu0/netlib/tree/d7193c4d5e1d0824d2e33b2ba17191f328582459
+We only use the feasible instances.
