@@ -10,6 +10,7 @@ from tqdm import tqdm
 from statistics import mean, median
 import json
 import hashlib
+from pathlib import Path
 
 # Ensure any stale intermediate files are caught by hashing current script
 with open(__file__,"rb") as f:
@@ -29,16 +30,20 @@ env.setParam('OutputFlag',False)
 print(f"    Model Name               | Minimum |   Median  |   Mean   | Maximum")
 print(f"----------------------------------------------------------------------------")
 
-# For every instance (they are stored as .mps.gz)
-for file in os.scandir('/home/sophie/miplibbenchmark'):
+
+def find_meanwidth(file, testset):
     model = gurobipy.read(os.fsdecode(file),env=env)
+
+    modelname = model.ModelName
+    if modelname == "":
+        modelname = file.name
 
     # We will just be doing the measurements themselves in computation
     # Analysis will be performed later
-    if os.path.isfile(f"output/{model.ModelName}-meanwidthlog.txt"):
-        print(f"output/{model.ModelName}-meanwidthlog.txt already exists")
+    if os.path.isfile(f"output/{testset}/{modelname}-meanwidthlog.txt"):
+        print(f"output/{testset}/{modelname}-meanwidthlog.txt already exists")
         sys.stdout.flush()
-        continue
+        return
 
     # Since the amount of previously processed MIPs isn't fixed, we reset seed
     np.random.seed(0)
@@ -79,7 +84,7 @@ for file in os.scandir('/home/sophie/miplibbenchmark'):
             minimizationresults.append(relax.ObjVal / math.sqrt(sqnorm))
         else:
             # No optimal solution found: abort this instance
-            print(f"{model.Modelname:<28} | Status code {relax.getAttr('Status')} on minimization attempt {attempts}")
+            print(f"{modelname:<28} | Status code {relax.getAttr('Status')} on minimization attempt {attempts}")
             statuscode = relax.getAttr('Status')
             sys.stdout.flush()
             break
@@ -91,17 +96,18 @@ for file in os.scandir('/home/sophie/miplibbenchmark'):
             maximizationresults.append(relax.ObjVal / math.sqrt(sqnorm))
         else:
             # No optimal solution found: abort this instance
-            print(f"{model.Modelname:<28} | Status code {relax.getAttr('Status')} on maximization attempt {attempts}")
+            print(f"{modelname:<28} | Status code {relax.getAttr('Status')} on maximization attempt {attempts}")
             statuscode = relax.getAttr('Status')
             sys.stdout.flush()
             break
     sys.stdout.flush()
     # Now write to file what we found
     # Will write the analysis script later
-    with open(f"output/{model.ModelName}-meanwidthlog.txt",'w',encoding="utf-8") as outputfile:
+    with open(f"output/{testset}/{modelname}-meanwidthlog.txt",'w',encoding="utf-8") as outputfile:
         outputfile.write(f"Script version {current_script_hash}\n")
         outputfile.write(f"Gurobi version {gurobipy.gurobi.version()}\n")
-        outputfile.write(f"Model name {model.Modelname}\n")
+        outputfile.write(f"Model name {modelname}\n")
+        outputfile.write(f"Variable count {len(relax.getVars())}\n")
         if len(maximizationresults) == samples_per_model:
             # aggregate min and max results to keep old stdout format
             results = [-x for x in minimizationresults] + maximizationresults
@@ -110,7 +116,7 @@ for file in os.scandir('/home/sophie/miplibbenchmark'):
             outputfile.write(f"\n")
             json.dump(maximizationresults, outputfile)
             outputfile.write(f"\n")
-            print(f"{model.Modelname:<28} | {min(results):>8.2} | {median(results):>8.2} | {mean(results):>8.2} | {max(results):>8.2}")
+            print(f"{modelname:<28} | {min(results):>8.2} | {median(results):>8.2} | {mean(results):>8.2} | {max(results):>8.2}")
             sys.stdout.flush()
         else:
             outputfile.write(f"Status code {statuscode} on attempt {attempts}\n")
@@ -119,3 +125,14 @@ for file in os.scandir('/home/sophie/miplibbenchmark'):
             json.dump(maximizationresults, outputfile)
             outputfile.write(f"\n")
     sys.stdout.flush()
+
+Path("output").mkdir(exist_ok=True)
+Path("output/tests").mkdir(exist_ok=True)
+Path("output/netlib").mkdir(exist_ok=True)
+Path("output/miplib").mkdir(exist_ok=True)
+for file in os.scandir('./input/tests'):
+    find_meanwidth(file, 'tests')
+for file in os.scandir('./input/netlib'):
+    find_meanwidth(file, 'netlib')
+for file in os.scandir('./input/miplibbenchmark'):
+    find_meanwidth(file, 'miplib')

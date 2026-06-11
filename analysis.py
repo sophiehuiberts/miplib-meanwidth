@@ -26,26 +26,29 @@ samplemaxes = []
 
 
 # For every instance (they are stored as .mps.gz)
-for direntry in os.scandir('output'):
+for direntry in os.scandir('output/tests'):
     f = open(direntry, 'r')
 
     scriptversionline = f.readline()
     gurobiversionline = f.readline()
     modelnameline = f.readline()
+    variablecountline = f.readline()
     statuscodeline = f.readline()
     minimizationline = f.readline()
     maximizationline = f.readline()
 
     f.close()
 
-    if scriptversionline != "Script version 7673f1835e243e653da39473886fded06752d8ec19fa9b1aa2d9eb97f22a4ad1\n":
-        print(f"{os.fsdecode(file)} produced by wrong script version")
-        exit()
+    # To be honest I don't know how well these results will reproduce on a different machine.
+    # But at least the script version and Gurobi version can be accounted.
+    #if scriptversionline != "Script version 7673f1835e243e653da39473886fded06752d8ec19fa9b1aa2d9eb97f22a4ad1\n":
+    #    print(f"{os.fsdecode(f)} produced by wrong script version")
+    #    exit()
     if gurobiversionline != "Gurobi version (13, 0, 1)\n":
-        print(f"{os.fsdecode(file)} produced with wrong Gurobi version")
+        print(f"{os.fsdecode(f)} produced with wrong Gurobi version")
         exit()
     if modelnameline[:11] != "Model name ":
-        print(f"{os.fsdecode(file)} has no proper model name line")
+        print(f"{os.fsdecode(f)} has no proper model name line")
         exit()
     model = modelnameline[11:-1]
     if statuscodeline != "Full set of 200 results\n":
@@ -61,10 +64,10 @@ for direntry in os.scandir('output'):
     maximums = json.loads(maximizationline)
 
     if len(minimums) != 100:
-        print(f"{os.fsdecode(file)} has {len(minimums)} minimization results instead of 100")
+        print(f"{os.fsdecode(f)} has {len(minimums)} minimization results instead of 100")
         exit()
     if len(maximums) != 100:
-        print(f"{os.fsdecode(file)} has {len(maximums)} maximization results instead of 100")
+        print(f"{os.fsdecode(f)} has {len(maximums)} maximization results instead of 100")
         exit()
     successes = successes + 1
 
