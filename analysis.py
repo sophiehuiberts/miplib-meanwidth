@@ -15,11 +15,11 @@ with open(__file__,"rb") as f:
     print(f"Analysis script version {current_script_hash}")
 
 def analyze(lib):
-    print(f"==============================================================================")
+    print(f"===============================================================================================")
     print(f"                                    {lib}                                 ")
-    print(f"==============================================================================")
-    print(f"  Model Name                 |      Minimum |         Mean |      Maximum")
-    print(f"------------------------------------------------------------------------------")
+    print(f"===============================================================================================")
+    print(f"  Model Name                 |      Minimum |         Mean |      Maximum |    mean/sqrt(dim)")
+    print(f"-----------------------------------------------------------------------------------------------")
     worklimits = []
     unboundeds = []
     othererrors = []
@@ -29,6 +29,8 @@ def analyze(lib):
     samplestdsovermeans = []
     samplemaxes = []
     samplemeansphaseone = []
+
+    samplemeansoversqrtdim = []
     for direntry in os.scandir(f"output/{lib}"):
         f = open(direntry, 'r')
 
@@ -54,6 +56,7 @@ def analyze(lib):
             print(f"{os.fsdecode(f)} has no proper model name line")
             exit()
         model = modelnameline[11:-1]
+        variablecount = int(variablecountline.split(' ')[2])
         if statuscodeline != "Full set of 200 results\n":
             statuscode = statuscodeline.split(' ')[2]
             if statuscode == "16":
@@ -104,14 +107,16 @@ def analyze(lib):
         sample_stdev_phaseone = stdev(convorigin_widths)
         samplemeansphaseone.append(sample_mean_phaseone)
 
-        print(f"{model:<28}   {min(widths):>12.2f}   {sample_mean_feasible:>12.2f}   {max(widths):>12.2f}")
+        samplemeansoversqrtdim.append(sample_mean_feasible/math.sqrt(variablecount))
+
+        print(f"{model:<28}   {min(widths):>12.2f}   {sample_mean_feasible:>12.2f}   {max(widths):>12.2f}   {sample_mean_feasible/math.sqrt(variablecount):>12.2}")
     print(f"{len(unboundeds)} unboundeds")
     print(f"{len(worklimits)} work limits")
     print(f"{len(othererrors)} other errors")
     print(f"{successes} successes")
     print(f"{len(unboundeds) + len(worklimits) + successes} instances total.")
 
-    print("===== means summary =====")
+    print("===== sample means summary =====")
     print(f"{len([x for x in samplemeans if x < 1e-1])} means below 1e-1")
     print(f"{len([x for x in samplemeans if x > 1e-1 and x < 1e1])} means between 1e-1 and 1e1")
     print(f"{len([x for x in samplemeans if x > 1e1 and x < 1e2])} means between 1e1 and 1e2")
@@ -119,6 +124,15 @@ def analyze(lib):
     print(f"{len([x for x in samplemeans if x > 1e4 and x < 1e6])} means between 1e4 and 1e6")
     print(f"{len([x for x in samplemeans if x > 1e6 and x < 1e9])} means between 1e6 and 1e9")
     print(f"{len([x for x in samplemeans if x > 1e9])} means over 1e9")
+
+    print("===== sample means over sqrt(dim) summary =====")
+    print(f"{len([x for x in samplemeansoversqrtdim if x < 1e-1])} below 1e-1")
+    print(f"{len([x for x in samplemeansoversqrtdim if x > 1e-1 and x < 1e1])} between 1e-1 and 1e1")
+    print(f"{len([x for x in samplemeansoversqrtdim if x > 1e1 and x < 1e2])} between 1e1 and 1e2")
+    print(f"{len([x for x in samplemeansoversqrtdim if x > 1e2 and x < 1e4])} between 1e2 and 1e4")
+    print(f"{len([x for x in samplemeansoversqrtdim if x > 1e4 and x < 1e6])} between 1e4 and 1e6")
+    print(f"{len([x for x in samplemeansoversqrtdim if x > 1e6 and x < 1e9])} between 1e6 and 1e9")
+    print(f"{len([x for x in samplemeansoversqrtdim if x > 1e9])} over 1e9")
 
 if Path('output/tests').is_dir():
     analyze('tests')
