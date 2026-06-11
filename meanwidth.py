@@ -45,6 +45,14 @@ def find_meanwidth(file, testset):
         sys.stdout.flush()
         return
 
+    equalityconstraintcount = 0
+    for constr in model.getConstrs():
+        if constr.getAttr("Sense") == '=':
+            equalityconstraintcount = equalityconstraintcount + 1
+    for var in model.getVars():
+        if var.getAttr("UB") < var.getAttr("LB") + 1e-6:
+            equalityconstraintcount = equalityconstraintcount + 1
+
     # Since the amount of previously processed MIPs isn't fixed, we reset seed
     np.random.seed(0)
 
@@ -108,6 +116,7 @@ def find_meanwidth(file, testset):
         outputfile.write(f"Gurobi version {gurobipy.gurobi.version()}\n")
         outputfile.write(f"Model name {modelname}\n")
         outputfile.write(f"Variable count {len(relax.getVars())}\n")
+        outputfile.write(f"Equality count {equalityconstraintcount}\n")
         if len(maximizationresults) == samples_per_model:
             # aggregate min and max results to keep old stdout format
             results = [-x for x in minimizationresults] + maximizationresults
