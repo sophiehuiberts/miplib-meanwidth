@@ -151,6 +151,11 @@ def analyze(lib):
     return samplemeans, variablecounts, degreesoffreedomcounts
 
 fig,ax = plt.subplots()
+ax.set_ylabel("Sample mean width (n=100)")
+ax.set_xlabel("Variable count")
+ax.set_xscale('log')
+ax.set_yscale('log')
+ax.grid()
 
 if Path('output/tests').is_dir():
     means,varcounts,degreesoffreedom = analyze('tests')
@@ -161,8 +166,5 @@ if Path('output/netlib').is_dir():
 if Path('output/miplib').is_dir():
     means,varcounts,degreesoffreedom = analyze('miplib')
     ax.scatter(varcounts,means,marker='o',c='blue',alpha=0.3,label="MIPLIB")
-ax.set_ylabel("Sample mean width (n=100)")
-ax.set_xlabel("Variable count")
-ax.loglog()
 ax.legend()
 plt.savefig('meanwidth-varcount-plot.png')
