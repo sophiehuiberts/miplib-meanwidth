@@ -79,7 +79,7 @@ def analyze(lib):
             else:
                 print("=========================================")
                 print(" WARNING")
-                print(f" RUN {model} HAS UNKNOWN STATUS CODE ")
+                print(f" RUN {model} HAS UNKNOWN STATUS CODE {statuscode}")
                 print("=========================================")
                 othererrors.append(model)
             continue
@@ -128,7 +128,7 @@ def analyze(lib):
     print(f"{len(worklimits)} work limits")
     print(f"{len(othererrors)} other errors")
     print(f"{successes} successes")
-    print(f"{len(unboundeds) + len(worklimits) + successes} instances total.")
+    print(f"{len(unboundeds) + len(worklimits) + successes + len(othererrors)} instances total.")
 
     print("===== sample means summary =====")
     print(f"{len([x for x in samplemeans if x < 1e-1])} means below 1e-1")
@@ -154,7 +154,7 @@ fig,ax = plt.subplots()
 
 if Path('output/tests').is_dir():
     means,varcounts,degreesoffreedom = analyze('tests')
-    ax.scatter(varcounts,means,marker='s',c='yellow',label="Unit cubes")
+    ax.scatter(varcounts,means,marker='s',c='orange',label="Unit cubes")
 if Path('output/netlib').is_dir():
     means,varcounts,degreesoffreedom = analyze('netlib')
     ax.scatter(varcounts,means,marker='^',c='green',label="NETLIB")
