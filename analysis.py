@@ -167,4 +167,4 @@ if Path('output/miplib').is_dir():
     means,varcounts,degreesoffreedom = analyze('miplib')
     ax.scatter(varcounts,means,marker='o',c='blue',alpha=0.3,label="MIPLIB")
 ax.legend()
-plt.savefig('meanwidth-varcount-plot.png')
+plt.savefig('meanwidth-varcount-plot.svg')
