@@ -1,0 +1,8 @@
+Script version b87b35861c3ed787144dcc247c45807fe781f70546bb3f40c8b798db33a1b7af
+Gurobi version (13, 0, 1)
+Model name rail02
+Variable count 270869
+Equality count 93088
+Status code 11 on attempt 1
+[-1.802998481177943]
+[1.6605858793998465]

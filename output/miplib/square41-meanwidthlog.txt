@@ -1,0 +1,8 @@
+Script version b87b35861c3ed787144dcc247c45807fe781f70546bb3f40c8b798db33a1b7af
+Gurobi version (13, 0, 1)
+Model name square41
+Variable count 62234
+Equality count 40124
+Status code 11 on attempt 2
+[-2.0197775848559103, -4.113836252298934]
+[10.05738254105271, 3.025058787123142]

@@ -1,0 +1,8 @@
+Script version b87b35861c3ed787144dcc247c45807fe781f70546bb3f40c8b798db33a1b7af
+Gurobi version (13, 0, 1)
+Model name satellites2-40
+Variable count 35378
+Equality count 13560
+Status code 11 on attempt 1
+[-509574.87222516007]
+[452490.79441980395]

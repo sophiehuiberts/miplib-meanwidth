@@ -1,0 +1,8 @@
+Script version b87b35861c3ed787144dcc247c45807fe781f70546bb3f40c8b798db33a1b7af
+Gurobi version (13, 0, 1)
+Model name glass4
+Variable count 322
+Equality count 37
+Status code 5 on attempt 0
+[-780.9634014283203]
+[]

@@ -1,0 +1,8 @@
+Script version b87b35861c3ed787144dcc247c45807fe781f70546bb3f40c8b798db33a1b7af
+Gurobi version (13, 0, 1)
+Model name supportcase12
+Variable count 799616
+Equality count 146414
+Status code 11 on attempt 2
+[-68.04226744574514, -68.10741549202365]
+[68.88525514832676, 69.32334968599326]

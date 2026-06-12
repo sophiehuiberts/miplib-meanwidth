@@ -1,0 +1,8 @@
+Script version b87b35861c3ed787144dcc247c45807fe781f70546bb3f40c8b798db33a1b7af
+Gurobi version (13, 0, 1)
+Model name neos-5114902-kasavu
+Variable count 710164
+Equality count 254996
+Status code 16 on attempt 0
+[]
+[]
