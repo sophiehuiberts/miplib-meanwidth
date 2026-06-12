@@ -154,13 +154,13 @@ fig,ax = plt.subplots()
 
 if Path('output/tests').is_dir():
     means,varcounts,degreesoffreedom = analyze('tests')
-    ax.scatter(varcounts,means,marker='s',c='orange',label="Unit cubes")
+    ax.scatter(varcounts,means,marker='s',alpha=0.3,c='orange',label="Unit cubes")
 if Path('output/netlib').is_dir():
     means,varcounts,degreesoffreedom = analyze('netlib')
-    ax.scatter(varcounts,means,marker='^',c='green',label="NETLIB")
+    ax.scatter(varcounts,means,marker='^',alpha=0.3,c='green',label="NETLIB")
 if Path('output/miplib').is_dir():
     means,varcounts,degreesoffreedom = analyze('miplib')
-    ax.scatter(varcounts,means,marker='o',c='blue',label="MIPLIB")
+    ax.scatter(varcounts,means,marker='o',c='blue',alpha=0.3,label="MIPLIB")
 ax.set_ylabel("Sample mean width (n=100)")
 ax.set_xlabel("Variable count")
 ax.loglog()
