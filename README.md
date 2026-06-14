@@ -34,3 +34,26 @@ Changes compared to arxiv-v1:
 - Improved error handling
 - More pretty printing
 - Added unit cubes as a little reference set
+
+Note on running time:
+I was confortable letting this experiment run for a really long time. If you are not, then probably you should avoid replicating the computation for the following instances:
+- cryptanalysiskb128n5obj14 (32 minutes)
+- cryptanalysiskb128n5obj16 (32 minutes)
+- ex10 (5 hours)
+- ex9 (1,5 hour)
+- gfd-schedulen180f7d50m30k18 (40 minutes)
+- neos-2075418-temuka (5 hours)
+- neos-5049753-cuanza (13 hours)
+- neos-5104907-jarama (13 hours)
+- ns1116954 (45 minutes)
+- rail02 (75 minutes)
+- square47 (50 minutes)
+- supportcase19 (50 minutes)
+- supportcase22 (26 minutes)
+
+On dependencies:
+createtestproblems.py depends on having Gurobi and gurobipy installed.
+meanwidth.py assumes you have Gurobi 13.0.1 exactly.
+analysis.py has no dependencies, or at least nothing that cant be found in pip.
+
+If you have a different Gurobi version I cannot guarantee reproducibility. You can still run the code, but you need to remove the version safeguard in analysis.py.
