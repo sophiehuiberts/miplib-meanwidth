@@ -120,7 +120,7 @@ def analyze(lib):
         samplemeansoversqrtdim.append(sample_mean_feasible/math.sqrt(variablecount))
         samplemeansoversqrtdof.append(sample_mean_feasible/math.sqrt(variablecount-equalitycount))
 
-        print(f"{model:<28}   {min(widths):>12.2f}   {sample_mean_feasible:>12.2f}   {max(widths):>12.2f}   {sample_mean_feasible/math.sqrt(variablecount):>12.2}")
+        print(f"{model:<28}   {min(widths):>12.2f}   {sample_mean_feasible:>12.2f}   {max(widths):>12.2f}   {sample_mean_feasible/math.sqrt(variablecount):>12.2f}")
 
 
 
@@ -167,4 +167,5 @@ if Path('output/miplib').is_dir():
     means,varcounts,degreesoffreedom = analyze('miplib')
     ax.scatter(varcounts,means,marker='o',c='blue',alpha=0.3,label="MIPLIB")
 ax.legend()
-plt.savefig('meanwidth-varcount-plot.svg')
+plt.savefig('plot-meanwidth-varcount.pdf')
+plt.savefig('plot-meanwidth-varcount.svg')
